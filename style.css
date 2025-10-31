@@ -1,0 +1,215 @@
+body, html {
+  overflow: hidden;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  cursor: default;
+}
+
+/* Game container with background image */
+#game-container {
+  width: 100vw;
+  height: 100vh;
+  background-image: url('bg.png');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+/* 开场对话框 */
+#intro-dialog {
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  background-image: url('dialogue.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 2.5rem 3rem;
+  z-index: 1000;
+  max-width: 600px;
+  min-width: 550px;
+  min-height: 220px;
+  animation: fadeIn 1s ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#intro-text {
+  font-family: 'Indie Flower', cursive;
+  color: #2a2520;
+  font-size: 1.3rem;
+  line-height: 1.4;
+  text-align: center;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translate(-50%, -45%); }
+  to { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+/* 书籍图标 */
+#books-icon {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  transform: translateY(-50%);
+  width: 500px;
+  height: 600px;
+  background-image: url('books.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  opacity: 0.9;
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+#books-icon:hover {
+  opacity: 1;
+  transform: translateY(-50%) scale(1.05);
+}
+
+/* Workspace for interactive files */
+#workspace {
+  position: absolute;
+  top: 20%;
+  left: 25%;
+  width: 50%;
+  height: 60%;
+}
+
+/* Map document - no background, just image */
+#map-document {
+  position: relative;
+}
+
+/* Drawing canvas */
+#drawing-canvas {
+  width: 100%;
+  height: 100%;
+  cursor: crosshair;
+  display: block;
+}
+
+/* 侧边工具栏 */
+#toolbar {
+  position: fixed;
+  right: 2%;
+  top: 50%;
+  transform: translateY(-50%);
+  background-image: url('tool bar.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 2rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  z-index: 10000;
+  opacity: 0.85;
+}
+
+.toolbar-item {
+  width: 80px;
+  height: 80px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.toolbar-item:hover {
+  transform: scale(1.05);
+}
+
+.toolbar-item:active {
+  transform: scale(0.95);
+}
+
+/* Tool: Pen */
+#tool-pen-hotspot {
+  background-image: url('pen.png');
+}
+
+/* Tool: Tape */
+#tool-tape-hotspot {
+  background-image: url('tape.png');
+}
+
+/* Tool: Tweezers */
+#tool-tweezers-hotspot {
+  background-image: url('Tweezers.png');
+}
+
+/* Tool: Magnifier */
+#tool-magnifier-hotspot {
+  background-image: url('magnifier.png');
+}
+
+/* Tool: Pass (collected) */
+#tool-pass-slot {
+  background-image: url('pass.png');
+}
+
+/* 发光效果 */
+@keyframes glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.8)) drop-shadow(0 0 10px rgba(255, 215, 0, 0.6));
+  }
+  50% {
+    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 1)) drop-shadow(0 0 20px rgba(255, 215, 0, 0.8));
+  }
+}
+
+.glow-effect {
+  animation: glow 2s ease-in-out infinite;
+}
+
+
+/* Tool: Box */
+#tool-box-hotspot {
+  background-image: url('box.png');
+}
+
+/* Fragments to repair pile */
+#fragment-pile {
+  position: absolute;
+  top: 25%;
+  left: 3%;
+  width: 200px;
+  height: 300px;
+  display: none;
+  font-family: 'Cormorant Garamond', serif;
+  color: #f3eade;
+  padding: 1rem;
+  border: 2px dashed #5a4a3a;
+}
+
+/* Paper styles in archive modal */
+.paper {
+  background-color: #f3eade;
+  font-family: 'Cormorant Garamond', serif;
+  color: #3a3a3a;
+  border: 1px solid #dcd0b0;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.document-font {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+/* Letter fragment styles */
+.letter-fragment {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.letter-fragment:hover {
+  transform: translateY(-5px);
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.4);
+}

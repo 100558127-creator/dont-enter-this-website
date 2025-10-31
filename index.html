@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Things You Never Know</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=Nanum+Myeongjo:wght@400;700&family=Indie+Flower&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="game-container">
+
+        <!-- 开场对话框 -->
+        <div id="intro-dialog">
+            <div id="intro-text">
+                <p>You are a second-hand book lover. Today you found a bunch of old books, but... there seems to be something unexpected inside...</p>
+                <p style="margin-top: 1rem; color: #d32f2f;">Click the books to check</p>
+            </div>
+        </div>
+
+        <!-- 书籍图片 -->
+        <div id="books-icon"></div>
+
+        <div id="workspace">
+            </div>
+
+        <!-- 侧边工具栏 -->
+        <div id="toolbar">
+            <div class="toolbar-item" id="tool-pen-hotspot" title="Pen Tool"></div>
+            <div class="toolbar-item" id="tool-tape-hotspot" title="Tape"></div>
+            <div class="toolbar-item" id="tool-tweezers-hotspot" title="Tweezers"></div>
+            <div class="toolbar-item" id="tool-magnifier-hotspot" title="Magnifier"></div>
+            <div class="toolbar-item" id="tool-box-hotspot" title="Box"></div>
+            <div class="toolbar-item" id="tool-pass-slot" title="Pass" style="display: none;"></div>
+        </div>
+        
+        <div id="fragment-pile">
+            <p class="text-lg">Fragments to repair...</p>
+        </div>
+
+        <div id="archive-modal" class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+            <div class="paper w-1/2 h-3/4 p-8 overflow-y-auto">
+                <div id="archive-content" class="document-font">
+                    </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
